@@ -1,6 +1,7 @@
 import React,{useEffect,useState} from 'react'
 import axios from "axios"
 import Item from '../Item';
+import { useAuth } from '../Context/Context';
 
 
 const Listing = () => {
@@ -9,7 +10,9 @@ const Listing = () => {
   const [loading,setLoading]=useState(true);
   const [debounce,setDebounce]=useState();
   const [price,setPrice]=useState();
-  const [toggle,setToggle]=useState(false);
+  // const [toggle,setToggle]=useState(false);
+ 
+let {toggle,setToggle}=useAuth();
 
   const searchApi=async(debounce)=>{
     try{
@@ -94,7 +97,7 @@ const filter=()=>{
   }
   
   return (
-    <div className={`${toggle ? "bg-black text-white" : "bg-slate-100 text-black"}  overflow-hidden h-screen overflow-y-auto`}> 
+    <div className={`${toggle ? "bg-[#1f0604] text-white" : "bg-slate-100 text-black"} md:flex flex-wrap  overflow-hidden h-screen overflow-y-auto`}> 
     <div className='flex gap-22'>
       <p className='relative left-22 font-semibold'>Discover popular properties</p>
       <div className='border rounded-sm h-8 w-64  mt-1 relative left-22'>
@@ -109,13 +112,10 @@ const filter=()=>{
             <span onClick={filter}className="material-symbols-outlined ml-6 mt-1 cursor-pointer">
               filter_alt
             </span>
-            <div className="cursor-pointer"><span onClick={()=>setToggle(!toggle)}className="material-symbols-outlined p-1 ml-160 cursor-pointer">
-        contrast
-        </span>
-      </div>
+            
   </div>
       <ul>
-      <p className='grid grid-cols-4 gap-2  '>{all_products.map((product,index)=>(
+      <p className=' grid grid-cols-1 gap-2 place-items-center xl:grid-cols-4 xl:gap-5 lg:grid-cols-3 lg:gap-5 md:grid-cols-2 md:gap-5  sm:grid-cols-2  sm:gap-1'>{all_products.map((product,index)=>(
              <li key={index}>{<Item product={product}/>}</li>
       ))}</p>
       </ul>

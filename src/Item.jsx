@@ -5,7 +5,7 @@ const Item = ({product}) => {
  
    <>
       <div >
-         <div className='relative left-22 h-76 w-64 py-4 mb-6 transition-transform duration-500 hover:scale-110 hover:opacity-93 cursor-pointer '>
+         <div className='relative left-22 h-76 w-64 py-4 mb-6 transition-transform duration-500 hover:scale-110 hover:opacity-93 cursor-pointer  '>
                <img className=' rounded-md h-42 mb-4 ' src="https://images.pexels.com/photos/1732414/pexels-photo-1732414.jpeg?auto=compress&cs=tinysrgb&w=600"/>
                <p className='font-semibold mb-2'>${product.price} /mo</p>
                <p className='font-semibold mb-2'>{product.name}</p>

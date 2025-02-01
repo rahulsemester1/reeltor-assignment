@@ -1,9 +1,11 @@
 import React,{useState} from 'react'
 import {NavLink,useNavigate} from "react-router-dom";
+import { useAuth } from './Context/Context';
+
  
 
 const Navbar = () => {
-  
+  let {toggle,setToggle}=useAuth();  
 
   const getNavLinkStyle=({isActive})=>{
     return{
@@ -33,6 +35,7 @@ const Navbar = () => {
       </span><p className='p-2'>Rahul Lakhanpal</p>
 
       
+      
  </div>
 </div>
 
@@ -51,6 +54,7 @@ const Navbar = () => {
          <NavLink to="/listing" style={getNavLinkStyle}>home</NavLink>
   
         </span>
+        
       <span className="material-symbols-outlined">
         pie_chart
         </span>
@@ -63,6 +67,11 @@ const Navbar = () => {
       <span className="material-symbols-outlined">
     settings
     </span>
+
+    <div className="cursor-pointer"><span onClick={()=>setToggle(!toggle)} className="material-symbols-outlined p-1 ml-160 cursor-pointer absolute top-4 left-180 ">
+        contrast
+        </span>
+      </div>
     </div>
      </>
   )
