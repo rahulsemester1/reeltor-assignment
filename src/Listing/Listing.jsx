@@ -13,10 +13,11 @@ const Listing = () => {
   // const [toggle,setToggle]=useState(false);
  
 let {toggle,setToggle}=useAuth();
+  const url="https://reeltor-assignment-backend.onrender.com"; 
 
   const searchApi=async(debounce)=>{
     try{
-      const response=await axios(`http://localhost:4000/api/v1/properties/search/${debounce}`);
+      const response=await axios(`${url}/api/v1/properties/search/${debounce}`);
       console.log(response.data.data)
       if(response){
         console.log(response)
@@ -34,7 +35,7 @@ let {toggle,setToggle}=useAuth();
 
 const apiCall=async()=>{
   try{
-    const response=await axios("http://localhost:4000/api/v1/properties");
+    const response=await axios(`${url}/api/v1/properties`);
     console.log(response.data.data)
     if(response){
       console.log(response)
@@ -49,7 +50,7 @@ const apiCall=async()=>{
 //api call for filtering data on basis of price
   const apiFilter=async()=>{
     try{
-      const response=await axios(`http://localhost:4000/api/v1/filter/${price}`);
+      const response=await axios(`${url}/api/v1/filter/${price}`);
       console.log(response.data.data)
       if(response){
         console.log(response) 
